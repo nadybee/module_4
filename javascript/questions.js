@@ -1,7 +1,8 @@
 const questions = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    selection: ["<js>", "<script>", "<scripting>", "<javascript>"],
+    selection: [],
+    // selection: ['"<js>"', '"<script>"', '"<scripting>"', '"<javascript>"'],
     answer: 1,
   },
   {
@@ -19,7 +20,7 @@ const questions = [
   {
     question: "Where is the correct place to insert a JavaScript?",
     selection: [
-      "Both the <head> section and the <body> section are correct",
+      "Both the <head>' section and the <body> section are correct",
       "The <body> section",
       "the <head> section",
     ],
@@ -80,4 +81,3 @@ const questions = [
   },
 ];
 
-console.log(questions[0].question);
