@@ -5,9 +5,8 @@ const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 const questions = document.getElementsByClassName("question");
 const answers = document.getElementsByName("answer");
-// const correctAnswer = document.getElementById("correct-answer")
-// const wrong = document.getElementById('wrong')
-// const correct = document.getElementById('correct')
+const timer = document.getElementById('timer')
+
 
 const getQuestions = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -24,7 +23,7 @@ const getQuestions = (arr) => {
             </ul>
             <h3 id= "correct" class="hidden"> Correct! </h3>
             <h3 id= "wrong" class="hidden"> Wrong! </h3>
-            <p id="correct-answer" class= "hidden"value="${arr[i].selection[arr[i].answer]}"> Answer: ${arr[i].selection[arr[i].answer]} </p>
+            <p id="correct-answer" class= "hidden"value="${arr[i].selection[arr[i].answer]}"> Answer:  ${arr[i].selection[arr[i].answer]} </p>
             </div>
           `
     );
@@ -34,10 +33,15 @@ const getQuestions = (arr) => {
 };
 const allQuestions=getQuestions(data);
 const quizQuestions = quizHTML.values();
+const countdown = document.createElement('div')
+const time = 500;
+timer.appendChild(countdown)
+countdown.innerHTML = ' ' + time + ` seconds`;
 
 
 start.addEventListener("click", () => {
-   quiz.innerHTML= allQuestions[0]
+  set
+   quiz.innerHTML= quizQuestions.next().value
 //   quiz.innerHTML = quizQuestions.next().value;
   next.classList.remove("hidden");
   start.classList.add("hidden");
