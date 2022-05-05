@@ -12,3 +12,43 @@ h1 {
     color: purple;
     
 }
+main {
+    border: 6px solid black
+}
+
+.container {
+    border: 2px solid red;
+}
+
+.question {
+    border: 2px solid blue;
+    margin: 6px;
+    padding: 16px;
+   
+}
+.question ul {
+    list-style: none;
+    padding-top: 16px;
+    margin-left: 36px;
+}
+.question li {
+    display: flex;
+   
+    align-items: center;
+    justify-items: center;
+    padding: 8px;
+    height: 24px;
+    border: 2px solid green;
+    margin-bottom: 4px;
+
+}
+.question input {
+    margin-right: 8px;
+}
+.hidden {
+    display: none;
+}
+button {
+    padding: 10px;
+    margin: 15px;
+}

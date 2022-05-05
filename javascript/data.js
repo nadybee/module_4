@@ -1,8 +1,8 @@
-const questions = [
+const data = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    selection: [],
-    // selection: ['"<js>"', '"<script>"', '"<scripting>"', '"<javascript>"'],
+    selection: [  `&lt;js&gt`, `&lt;script&gt`,`&lt;scripting&gt`,`&lt;javascript&gt`],
+    // selection: ['"&lt;js&gt"', '"&lt;script&gt"', '"&lt;scripting&gt"', '"&lt;javascript&gt"'],
     answer: 1,
   },
   {
@@ -20,9 +20,9 @@ const questions = [
   {
     question: "Where is the correct place to insert a JavaScript?",
     selection: [
-      "Both the <head>' section and the <body> section are correct",
-      "The <body> section",
-      "the <head> section",
+      "Both the &lt;head&gt' section and the &lt;body&gt section are correct",
+      "The &lt;body&gt section",
+      "the &lt;head&gt section",
     ],
     answer: 0,
   },
@@ -30,14 +30,14 @@ const questions = [
     question:
       "What is the correct syntax for reffering to an external script called 'xxx.js'?",
     selection: [
-      '<script href="xxx.js">',
-      '<script name="xxx.js">',
-      '<script src="xxx.js">',
+      '&lt;script href="xxx.js"&gt',
+      '&lt;script name="xxx.js"&gt',
+      '&lt;script src="xxx.js"&gt',
     ],
     answer: 2,
   },
   {
-    question: "The external JavaScript file must contain the <script> tag.",
+    question: "The external JavaScript file must contain the &lt;script&gt tag.",
     selection: ["True", "False"],
     answer: 1,
   },
@@ -76,7 +76,7 @@ const questions = [
   },
   {
     question: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
-    selection: ['if (i!=5)', 'if(i<>5)', 'ifi <>5', 'if i=! 5 then'],
+    selection: ['if (i!=5)', 'if(i&lt;&gt5)', 'ifi &lt;&gt5', 'if i=! 5 then'],
     answer: 0,
   },
 ];
