@@ -5,7 +5,10 @@ const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 const questions = document.getElementsByClassName("question");
 const answers = document.getElementsByName("answer");
-const timer = document.getElementById('timer')
+const timer = document.getElementById('timer');
+
+
+let index = 0;
 
 
 const getQuestions = (arr) => {
@@ -31,17 +34,25 @@ const getQuestions = (arr) => {
 
   return quizHTML;
 };
-const allQuestions=getQuestions(data);
-const quizQuestions = quizHTML.values();
+// const allQuestions=getQuestions(data);
+// const quizQuestions = quizHTML.values();
 const countdown = document.createElement('div')
-const time = 500;
+let time = 500;
 timer.appendChild(countdown)
 countdown.innerHTML = ' ' + time + ` seconds`;
 
 
+const countingDown = setInterval (()=> {
+    if (time <= 0){
+        clearInterval(countingDown)
+    }
+
+},1000)
+
+getQuestions(data)
 start.addEventListener("click", () => {
 
-   quiz.innerHTML= quizQuestions.next().value
+   quiz.innerHTML= quizHTML[index]
 //   quiz.innerHTML = quizQuestions.next().value;
   next.classList.remove("hidden");
   start.classList.add("hidden");
@@ -50,7 +61,7 @@ start.addEventListener("click", () => {
 })
 
 next.addEventListener("click", () => {
-  quiz.innerHTML = quizQuestions.next().value;
+  quiz.innerHTML = quizHTML[index++]
 
   //   previous.classList.remove("hidden");
 });
@@ -78,6 +89,7 @@ const showAnswer = () => {
       }
 
 }
+
 quiz.addEventListener('click', showAnswer)
 
 // previous.addEventListener("click", () => {

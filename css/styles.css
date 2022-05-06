@@ -56,4 +56,6 @@ button {
     display: flex;
     font-size: 20px;
     padding: 16px;
+    border: 2px solid orange;
+    margin: 4px;
 }
