@@ -40,7 +40,7 @@ countdown.innerHTML = ' ' + time + ` seconds`;
 
 
 start.addEventListener("click", () => {
-  set
+
    quiz.innerHTML= quizQuestions.next().value
 //   quiz.innerHTML = quizQuestions.next().value;
   next.classList.remove("hidden");
