@@ -5,30 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Code Quiz</title>
+
+    <title>JavaScript Quiz</title>
   </head>
   <body>
     <header>
-      <h1>Code Quiz</h1>
+      <h1> JavaScript Quiz</h1>
+      <h3 id="see-high-scores">High Scores</h3>
     </header>
-    <main> 
-    <button type="submit" id="start">Start Quiz</button>
-      <div id="timer">Timer: </div>
-
-    <div class="container">
-   
-    </div>
-    <h3 id= "correct" class="hidden"> Correct! </h3>
-    <h3 id= "wrong" class="hidden"> Wrong! </h3>
-    <p id="correct-answer" class= "hidden"> Answer:  </p>
+    <main id="main">
+        <div id="starting-game"> 
+            <h2> Take the JavaScript Essentials Quiz!</h2>
+            <p> See how well you know your stuff! You've got to think fast, if you get a question right 20 seconds is added to your time. See how much time you will have left in the end!</p>
+        <button type="submit" id="start">Start Quiz</button>
     </div>
 
-    <!-- <button type="submit" id="previous" class="hidden">Previous</button> -->
-    <button type="submit" id="next" class="hidden">Next</button>
-</main>
+      <div id="save-section" class="hidden">
+        <form action="submit">
+          <label for="name">Name: </label>
+          <input type="text" id="name" placeholder="name" />
+        </form>
+        <div id="user-score"> your score: </div>
+        <button id="save">save</button>
+      </div>
+
+      <div id="game" class="hidden">
+     
+        <div id="timer" class="hidden">Timer:</div>
+
+        <div class="container"></div>
+        <div id="show-answer">
+          <h3 id="correct" class="hidden">Correct!</h3>
+          <h3 id="wrong" class="hidden">Wrong!</h3>
+          <p id="correct-answer" class="hidden">Answer:</p>
+        </div>
+
+        <!-- <button type="submit" id="previous" class="hidden">Previous</button> -->
+        <button type="submit" id="next" class="hidden">Next</button>
+        <p class="hidden" id="error">you must choose and answer!</p>
+        <div id="end-of-game" class="hidden">
+          <button id="save-score">save score</button>
+          <button id="try-again">try again</button>
+        </div>
+      </div>
+    </main>
     <script type="text/javascript" src="./javascript/data.js"></script>
     <script type="text/javascript" src="./javascript/data2.js"></script>
     <script type="text/javascript" src="./javascript/script.js"></script>
-
   </body>
 </html>
