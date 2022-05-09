@@ -76,7 +76,13 @@ header h3 {
     border-radius: 4px;
     background-color: white;
     border: 3px solid var(--tertiary);
-    color: var(--tertiary)
+    color: var(--tertiary);
+    
+}
+
+head h3:hover{
+    cursor: pointer;
+    font-size: 32px;
 }
 
 main {
