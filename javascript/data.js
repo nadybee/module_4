@@ -10,7 +10,7 @@ const data1 = [
       "What is the correct JavaScript syntax to change the content of the HTML element below?",
     selection: [
       'document.getElementByName("p").innerHTML = "Hello World!";',
-      'document.getElementById("demo").innerHTML = "Hello World!";',
+      `document.getElementById('demo').innerHTML = 'Hello World!';`,
       'document.getElement("p").innerHTML = "Hello World!";',
       '#demo.innerHTML = "Hello World!";',
     ],
@@ -20,7 +20,7 @@ const data1 = [
   {
     question: "Where is the correct place to insert a JavaScript?",
     selection: [
-      "Both the &lt;head&gt' section and the &lt;body&gt section are correct",
+      "Both the &lt;head&gt section and the &lt;body&gt section are correct",
       "The &lt;body&gt section",
       "the &lt;head&gt section",
     ],
@@ -32,7 +32,7 @@ const data1 = [
     selection: [
       '&lt;script href="xxx.js"&gt',
       '&lt;script name="xxx.js"&gt',
-      '&lt;script src="xxx.js"&gt',
+      `&lt;script src='xxx.js'&gt`,
     ],
     answer: 2,
   },
@@ -47,7 +47,7 @@ const data1 = [
       'msg("Hello World!");',
       'alertBox("Hello World!");',
       'msgBox("Hello World!");',
-      'alert("Hello World!");',
+      `alert('Hello World!');`,
     ],
     answer: 3,
   },

@@ -1,32 +1,35 @@
-
-const quiz = document.querySelector(".container");
-const start = document.getElementById("start");
-const startingGame = document.getElementById('starting-game')
-const next = document.getElementById("next");
-const previous = document.getElementById("previous");
-const questions = document.getElementsByClassName("question");
-const answers = document.getElementsByName("answer");
-const timer = document.getElementById("timer");
-const correctAnswer = document.getElementById("correct-answer");
-const correct = document.getElementById("correct");
-const wrong = document.getElementById("wrong");
-const main = document.getElementById("main");
-const game =document.getElementById('game')
-const showAnswer = document.getElementById("show-answer");
-const showHighScore = document.getElementById('see-high-scores')
-const nameInput = document.getElementById('name')
-const endofGameButtons = document.getElementById('end-of-game')
-const saveScore = document.getElementById('save-score')
-const saveSection = document.getElementById('save-section')
-const showingUserScore = document.getElementById('user-score')
-const saveButton = document.getElementById('save')
-const error = document.getElementById('error')
-
-let quizHTML = [];
-const data = data2;
-let userScore =0
-let time = 1000;
-let index = 0;
+const quiz = document.querySelector(".container")
+const start = document.getElementById("start")
+const startingGame = document.getElementById("starting-game")
+const next = document.getElementById("next")
+const previous = document.getElementById("previous")
+const questions = document.getElementsByClassName("question")
+const answers = document.getElementsByName("answer")
+const timer = document.getElementById("timer")
+const correctAnswer = document.getElementById("correct-answer")
+const correct = document.getElementById("correct")
+const wrong = document.getElementById("wrong")
+const main = document.getElementById("main")
+const game = document.getElementById("game")
+const showAnswer = document.getElementById("show-answer")
+const showHighScore = document.getElementById("see-high-scores")
+const nameInput = document.getElementById("name")
+const endofGameButtons = document.getElementById("end-of-game")
+const saveScore = document.getElementById("save-score")
+const saveSection = document.getElementById("save-section")
+const showingUserScore = document.getElementById("user-score")
+const saveAnswer = document.getElementById("save-button")
+const saveButton = document.getElementById("save")
+const error = document.getElementById("error")
+const scoreBoard = document.getElementById("score-board")
+const showAllScores = document.getElementById("show-all-scores")
+const homeButton = document.getElementById('return-home')
+const tryAgainButton = document.getElementById('try-again')
+let quizHTML = []
+const data = data1
+let userScore = 0
+let time = 2
+let index = 0
 
 const getQuestions = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -39,162 +42,186 @@ const getQuestions = (arr) => {
          ${arr[i].selection
            .map(
              (j) =>
-               `<li> <input type="radio" id="${j}" name="answer" value="${j}"> ${j} </li>`
+               `<li> <input type="radio" name="answer" id="${j}" class="radio-input"  value="${j}"> 
+               <label  for="${j}"> ${j} </label>
+               </li>`
            )
            .join("")}
             </ul>
           `
-    );
+    )
   }
 
-  return quizHTML;
-};
+  return quizHTML
+}
 
-const countdown = document.createElement("div");
-countdown.classList.add("countdown");
+const countdown = document.createElement("div")
+countdown.classList.add("countdown")
 
-timer.appendChild(countdown);
+timer.appendChild(countdown)
 
 const countingDown = () => {
   var setTime = setInterval(() => {
     if (time > 1) {
-      countdown.innerHTML = " " + time + ` seconds`;
-      time--;
+      countdown.innerHTML = " " + time + ` seconds`
+      time--
     } else if (time === 1) {
-      countdown.innerHTML = " " + time + ` second`;
-      time--;
+      countdown.innerHTML = " " + time + ` second`
+      time--
     } else if (index === data.length) {
-      clearInterval(setTime);
-     
+      clearInterval(setTime)
     } else {
-      countdown.innerHTML = `TIME IS UP!`;
+      countdown.innerHTML = `TIME IS UP!`
 
-      clearInterval(setTime);
-        gameOver()
+      clearInterval(setTime)
+      gameOver()
     }
-  }, 1000);
-};
-
-getQuestions(data);
-
-start.addEventListener("click", () => {
-  countingDown();
-  quiz.innerHTML = quizHTML[index];
-  timer.classList.remove('hidden')
-  next.classList.remove("hidden");
-  startingGame.classList.add("hidden");
-  game.classList.remove('hidden')
-  index++;
-});
-
-next.addEventListener("click", () => {
-   for (let answer in answers){
-       if (answers[answer].checked) { 
-  if (time > 0 && index < data.length) {
-    
-    quiz.innerHTML = quizHTML[index];
-    index++
-    correctAnswer.classList.add("hidden");
-    correct.classList.add("hidden");
-    wrong.classList.add("hidden");
-   
-  } else {
-    console.log("its over!");
-    gameOver()
-    time = 0
-    countdown.innerHTML = ''
-   
-  }
-}
-else {
-    error.classList.remove('hidden')
-}
+  }, 1000)
 }
 
-});
+getQuestions(data)
 
-//write function to end game.
-const showAnswers = () => {
-  let findCorrectAnswer;
-  error.classList.add("hidden")
+const savingAnswer = () => {
+  let findCorrectAnswer
   for (item in data[index - 1].selection) {
-    findCorrectAnswer = data[index - 1].selection[data[index - 1].answer];
+    findCorrectAnswer = data[index - 1].selection[data[index - 1].answer]
+      .replaceAll("&lt;", "<")
+      .replaceAll("&gt", ">")
   }
-  console.log(findCorrectAnswer);
+  console.log(findCorrectAnswer)
   for (let answer in answers) {
     if (answers[answer].checked) {
-      console.log(answers[answer].value);
+      showAnswer.classList.remove("hidden")
+      console.log(answers[answer].value)
       if (answers[answer].value == findCorrectAnswer) {
-        correct.classList.remove("hidden");
-        correctAnswer.innerText = `Answer: ${findCorrectAnswer}`;
-        time = time + 30;
-        //add focus to correct answers
+        console.log("correct")
+        correct.classList.remove("hidden")
+        correctAnswer.innerText = `Answer: ${findCorrectAnswer}`
+        time = time + 30
       } else {
-        wrong.classList.remove("hidden");
+        console.log(wrong)
+        wrong.classList.remove("hidden")
       }
-      correctAnswer.innerText = `Answer: ${findCorrectAnswer}`;
-      correctAnswer.classList.remove("hidden");
+      correctAnswer.innerText = `Answer: ${findCorrectAnswer}`
+      correctAnswer.classList.remove("hidden")
+      saveAnswer.classList.add("hidden")
+      next.classList.remove("hidden")
+      error.classList.add("hidden")
     }
+    // else {
+    //     error.classList.remove('hidden')
+    // }
   }
-};
+}
+
+const nextLogic = () => {
+  error.classList.add("hidden")
+  next.classList.add("hidden")
+  correct.classList.add("hidden")
+  wrong.classList.add("hidden")
+  saveAnswer.classList.remove("hidden")
+  if (time > 0 && index < data.length) {
+    quiz.innerHTML = quizHTML[index]
+    index++
+    showAnswer.classList.add("hidden")
+  } else {
+    console.log("its over!")
+    gameOver()
+    time = 0
+    countdown.innerHTML = ""
+  }
+}
+
+const fixAnswers = () => {
+  error.classList.add("hidden")
+}
 
 const gameOver = () => {
-  console.log("game over");
-  userScore = time;
+  userScore = time
+  quiz.classList.add('hidden')
+  saveAnswer.classList.add("hidden")
 
-  quiz.innerHTML = `<h3> Game Over </h3> <p> your time score is: ${userScore}. `;
-  showAnswer.classList.add("hidden");
+  document.getElementById('end-of-game-info').innerHTML = ` <div class="game-over"><p> your time score is: ${userScore}. </p> </div>`
+  showAnswer.classList.add("hidden")
   timer.classList.add("hidden")
-  next.classList.add('hidden')
-  endofGameButtons.classList.remove('hidden')
-  
-
-
-};
-
-
+  next.classList.add("hidden")
+  endofGameButtons.classList.remove("hidden")
+}
 
 const showScores = () => {
-    const lastUser= renderMessage()
-    main.innerText =  `Name: ${lastUser.name}  Score: ${lastUser.score}`;
-    start.classList.remove('hidden')
+  const userList = renderMessage()
+  console.log(userList)
+  let userHTML = []
 
+  for (let i = 0; i < userList.length; i++) {
+    userHTML.push(`<h3>  ${userList[i].name}:  ${userList[i].score}  </h3>`)
+  }
+  main.classList.add("hidden")
+  scoreBoard.classList.remove("hidden")
+  showAllScores.innerHTML = userHTML.join("")
 }
-const saveUserScore =() => {
-    game.classList.add('hidden')
-    saveSection.classList.remove('hidden')
- 
-    showingUserScore.innerText = `Your Score: ${userScore}`
- 
+const returningHome = () => {
+    scoreBoard.classList.add('hidden')
+    main.classList.remove('hidden')
+}
+const saveUserScore = () => {
+  game.classList.add("hidden")
+  saveSection.classList.remove("hidden")
 
+  showingUserScore.innerText = `Your Score: ${userScore}`
 }
 
 const saveUsersName = () => {
-   let userInfo = {
-       name: nameInput.value,
-       score: userScore
-   }
-   localStorage.setItem("userInfo", JSON.stringify(userInfo));
-   renderMessage()
-   showScores()
+  let userInfo = {
+    name: nameInput.value,
+    score: userScore,
+  }
+  localStorage.setItem(`userInfo_${nameInput.value}`, JSON.stringify(userInfo))
+  renderMessage()
+  showScores()
+}
+const renderMessage = () => {
+  let allUsers = []
+  for (let i = 0; i < localStorage.length; i++) {
+    allUsers.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+  }
+  console.log(allUsers)
+  //     var lastScore = JSON.parse(localStorage.getItem(`userInfo_${nameInput.value}`));
+  //   return lastScore
+  return allUsers
+}
+
+const tryingAgain = () => {
+    startingGame.classList.remove('hidden')
+    
 
 }
-const renderMessage =()=> {
-    var lastScore = JSON.parse(localStorage.getItem("userInfo"));
-  return lastScore
-}
+/** EVENT LISTENERS */
 
-const resetGame =() => {
+start.addEventListener("click", () => {
+  countingDown()
+  quiz.innerHTML = quizHTML[index]
+  timer.classList.remove("hidden")
+  saveAnswer.classList.remove("hidden")
+  //   next.classList.remove("hidden")
+  startingGame.classList.add("hidden")
+  game.classList.remove("hidden")
+  index++
+})
 
-}
+// removeError()
+saveAnswer.addEventListener("click", savingAnswer)
 
-quiz.addEventListener("click", showAnswers);
+next.addEventListener("click", nextLogic)
 
-showHighScore.addEventListener('click', showScores)
+quiz.addEventListener("click", fixAnswers)
 
-saveScore.addEventListener('click', saveUserScore)
+showHighScore.addEventListener("click", showScores)
 
-saveButton.addEventListener('click', saveUsersName)
+saveScore.addEventListener("click", saveUserScore)
 
+saveButton.addEventListener("click", saveUsersName)
 
+homeButton.addEventListener('click', returningHome)
 
+tryAgainButton.addEventListener.apply('click',tryingAgain)
