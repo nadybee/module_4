@@ -29,7 +29,7 @@ const tryAgainButton = document.getElementById('try-again');
 let quizHTML = [];
 const data = data1;
 let userScore = 0;
-let time = 5;
+let time = 5000;
 let index = 0;
 
 const getQuestions = (arr) => {
@@ -124,11 +124,12 @@ const savingAnswer = () => {
     else {
         error.classList.remove('hidden')
     }
+    error.classList.add('hidden')
   }
 };
 
 const nextLogic = () => {
-  error.classList.add('hidden');
+  error.classList.add('hidden')
   next.classList.add('hidden');
   correct.classList.add('hidden');
   wrong.classList.add('hidden');
@@ -203,8 +204,7 @@ const renderMessage = () => {
     allUsers.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
   }
   console.log(allUsers);
-  //     var lastScore = JSON.parse(localStorage.getItem(`userInfo_${nameInput.value}`));
-  //   return lastScore
+
   return allUsers;
 };
 
