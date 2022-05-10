@@ -196,6 +196,7 @@ main {
 
 .question input[type=radio]:checked+label {
     border: 3px solid var(--tertiary);
+    background-color:var(--secondary) ;
 }
 
 
