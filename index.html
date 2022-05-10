@@ -4,72 +4,87 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="./css/styles.css" />
 
     <title>JavaScript Quiz</title>
   </head>
   <body>
     <header>
-      <h1> JavaScript Quiz</h1>
+      <h1>JavaScript Quiz</h1>
       <h3 id="see-high-scores">High Scores</h3>
     </header>
     <main id="main">
-        <div id="starting-game"> 
-            <h2> Take the JavaScript Essentials Quiz!</h2>
-            <p> See how well you know your stuff! You've got to think fast, if you get a question right 20 seconds is added to your time. See how much time you will have left in the end!</p>
+      <div id="starting-game">
+        <h2>Take the JavaScript Fundamentals Quiz!</h2>
+        <p>
+          How well you know your stuff? You've got to think fast, if you get a
+          question wrong, 20 seconds is subtracted from your time.
+        </p>
+        <p>See how much time you will have left in the end!</p>
         <button type="submit" id="start">Start Quiz</button>
-    </div>
+      </div>
 
       <div id="save-section" class="hidden">
-          <h2>Save Score</h2>
+        <h2>Save Score</h2>
         <form action="submit">
           <label for="name">Name: </label>
           <input type="text" id="name" placeholder="name" />
         </form>
-        <div id="user-score"> your score: </div>
+        <div id="user-score">your score:</div>
         <button id="save">save</button>
       </div>
 
       <div id="game" class="hidden">
-     
         <div id="timer" class="hidden">Timer:</div>
 
         <div class="container"></div>
-        <div class="after-question"> 
-        <div id="show-answer" class="hidden">
-          <h3 id="correct" class="hidden">Correct!</h3>
-          <h3 id="wrong" class="hidden">Wrong!</h3>
-         
-          <p id="correct-answer" class="hidden">Answer:</p>
-        </div>
+        <div class="after-question">
+          <div id="show-answer" class="hidden">
+            <h3 id="correct" class="hidden">Correct!</h3>
+            <h3 id="wrong" class="hidden">Wrong!</h3>
+
+            <p id="correct-answer" class="hidden">Answer:</p>
+          </div>
           <button type="submit" id="next" class="hidden">Next</button>
           <button id="save-button" class="hidden">Save</button>
-          <p class="hidden" id="error"> ⚠️ you must choose an answer!</p>
+          <p class="hidden" id="error">⚠️ you must choose an answer!</p>
         </div>
-
-
 
         <div id="end-of-game" class="hidden">
-            <h2>Game Over</h2>
-            <p id="end-of-game-info"></p>
-            <div id="end-of-game-buttons">
-          <button id="save-score">save score</button>
-          <button id="try-again">try again</button>
-        </div>
+          <h2>Game Over</h2>
+          <p id="end-of-game-info"></p>
+          <div id="end-of-game-buttons">
+            <button id="save-score">save score</button>
+            <button id="try-again">try again</button>
+          </div>
         </div>
       </div>
       <div id="score-board" class="hidden">
         <h2>HIGH SCORES</h2>
         <div id="show-all-scores"></div>
-        <button id="return-home"> Home</button>
-    </div>
+        <button id="return-home">Home</button>
+      </div>
     </main>
-    <div class="end-flex">
-  
-  </div>
+    <div class="end-flex"></div>
     <script type="text/javascript" src="./javascript/data.js"></script>
-    <script type="text/javascript" src="./javascript/data2.js"></script>
     <script type="text/javascript" src="./javascript/script.js"></script>
-
   </body>
 </html>

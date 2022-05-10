@@ -1,7 +1,12 @@
 const data1 = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    selection: [  `&lt;js&gt`, `&lt;script&gt`,`&lt;scripting&gt`,`&lt;javascript&gt`],
+    selection: [
+      `&lt;js&gt`,
+      `&lt;script&gt`,
+      `&lt;scripting&gt`,
+      `&lt;javascript&gt`,
+    ],
     // selection: ['"&lt;js&gt"', '"&lt;script&gt"', '"&lt;scripting&gt"', '"&lt;javascript&gt"'],
     answer: 1,
   },
@@ -37,7 +42,8 @@ const data1 = [
     answer: 2,
   },
   {
-    question: "The external JavaScript file must contain the &lt;script&gt tag.",
+    question:
+      "The external JavaScript file must contain the &lt;script&gt tag.",
     selection: ["True", "False"],
     answer: 1,
   },
@@ -75,9 +81,9 @@ const data1 = [
     answer: 2,
   },
   {
-    question: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
-    selection: ['if (i!=5)', 'if(i&lt;&gt5)', 'ifi &lt;&gt5', 'if i=! 5 then'],
+    question:
+      'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
+    selection: ["if (i!=5)", "if(i&lt;&gt5)", "ifi &lt;&gt5", "if i=! 5 then"],
     answer: 0,
   },
-];
-
+]
