@@ -133,7 +133,6 @@ const savingAnswer = () => {
       next.classList.remove("hidden")
     }
   }
-  console.log(selected)
   handleError()
 }
 /** add or remove error if user has made a selection or not */
@@ -171,7 +170,7 @@ const gameOver = () => {
   saveAnswer.classList.add("hidden")
   document.getElementById(
     "end-of-game-info"
-  ).innerHTML = ` <div class="game-over"><p> your time score is: ${userScore}. </p> </div>`
+  ).innerHTML = ` <div class="game-over"><p> your time is: ${userScore}. </p> </div>`
   showAnswer.classList.add("hidden")
   timer.classList.add("hidden")
   next.classList.add("hidden")

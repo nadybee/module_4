@@ -14,4 +14,4 @@ https://nadybee.github.io/module_4/
 
 
 
-![alt text](/screenshot_4.png)
+![alt text](assets/screenshot_4.png)
